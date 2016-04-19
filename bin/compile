@@ -21,8 +21,7 @@ tar zxvf heroku-buildpack-cobol.tar.gz
 cp -R usr /app
 
 PATH=/app/usr/bin:$PATH
-#! COBC=/app/usr/bin/cobc
-COBC=c:/LAB/cobol/COBOLTEST
+COBC=/app/usr/bin/cobc
 
 cd $BUILD_DIR
 if [ -f configure ]; then
@@ -31,6 +30,6 @@ fi
 if [ -f Makefile ]; then
   make
 else
-  $COBC *.cob
+  $COBC -x *.cob
 fi
 
